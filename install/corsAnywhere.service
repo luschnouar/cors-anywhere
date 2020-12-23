@@ -1,0 +1,14 @@
+[Unit]
+Description=nodeJs cors anywhere Webserver
+After=network.target
+StartLimitIntervalSec=0
+[Service]
+Type=simple
+Restart=always
+RestartSec=1
+User=pi
+ExecStart=node /var/www/html/cors-anywhere/server.js
+
+[Install]
+WantedBy=multi-user.target
+#https://medium.com/@benmorel/creating-a-linux-service-with-systemd-611b5c8b91d6
