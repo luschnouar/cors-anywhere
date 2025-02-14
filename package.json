@@ -19,7 +19,7 @@
     "proxy",
     "heroku"
   ],
-  "main": "./lib/cors-anywhere.js",
+  "main": "./src/lib/cors-anywhere.js",
   "files": [
     "lib/",
     "test/",
@@ -38,12 +38,15 @@
     "lolex": "^1.5.0",
     "mocha": "^3.4.2",
     "nock": "^8.2.1",
-    "supertest": "^2.0.1"
+    "supertest": "^2.0.1",
+    "nodemon": "^3.1.9"
   },
   "scripts": {
     "lint": "eslint .",
     "test": "mocha ./test/test*.js --reporter spec",
-    "test-coverage": "istanbul cover ./node_modules/.bin/_mocha -- test/test.js test/test-ratelimit.js --reporter spec"
+    "test-coverage": "istanbul cover ./node_modules/.bin/_mocha -- test/test.js test/test-ratelimit.js --reporter spec",
+    "dev": "nodemon --inspect=0.0.0.0:9229 ./src/server.js",
+    "prod": "node ./src/server.js"
   },
   "engines": {
     "node": ">=0.10.0"
